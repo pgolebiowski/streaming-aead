@@ -1,0 +1,1 @@
+{"primaryKeyId":1513153637,"key":[{"keyData":{"typeUrl":"type.googleapis.com/google.crypto.tink.AesGcmHkdfStreamingKey","value":"EggIgIBAECAYAxogeBi3/vnCbYIIDku0hPD+vCYVUAef5/05wOOsks5db4s=","keyMaterialType":"SYMMETRIC"},"status":"ENABLED","keyId":1513153637,"outputPrefixType":"RAW"}]}
