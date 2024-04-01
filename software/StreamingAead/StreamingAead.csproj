@@ -1,9 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <PackageId>StreamingAead</PackageId>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>images/icon.jpg</PackageIcon>
+
+        <Version>1.0.3</Version>
+        <Authors>Patryk Golebiowski</Authors>
+        <Owners>Patryk Golebiowski</Owners>
+
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+
+        <PackageProjectUrl>https://github.com/pgolebiowski/streaming-aead</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/pgolebiowski/streaming-aead</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <PackageDescription>
+            StreamingAead is a .NET library for streaming encryption and decryption of large
+            datasets, implementing Google's Tink protocol for Streaming AEAD (Authenticated
+            Encryption with Associated Data). It offers easy-to-use functionality for handling large
+            files with AES-256 GCM encryption, ensuring data secrecy, authenticity, and efficiency.
+            This library is interoperable with Google's Tink, supporting encryption/decryption in
+            segments of 1 MB, making it ideal for applications requiring high security and
+            efficiency in data handling.
+        </PackageDescription>
+
+        <PackageTags>
+            encryption decryption streaming-aead aes-256 gcm tink .NET data-security
+        </PackageTags>
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="/" />
+        <None Include="../../icon.jpg" Pack="true" PackagePath="images/" />
+    </ItemGroup>
 
 </Project>

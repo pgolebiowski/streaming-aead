@@ -27,3 +27,21 @@ jobs:
       - name: Test
         run: dotnet test --verbosity normal --filter "Category != HeavyCompute & Category != LargeStorage" ./software/StreamingAead.Tests.Unit
 
+  publish_to_nuget:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Setup .NET 8.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x'
+      
+      - name: Pack
+        run: dotnet pack --configuration Release -o ./nupkgs ./software/StreamingAead
+        
+      - name: Publish to NuGet
+        run: dotnet nuget push "./nupkgs/*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate

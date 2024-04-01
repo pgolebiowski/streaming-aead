@@ -1,6 +1,11 @@
+[![][nuget-img]][nuget]
+
+[nuget]:     https://www.nuget.org/packages/StreamingAead
+[nuget-img]: https://badge.fury.io/nu/StreamingAead.svg
+
 # Streaming AEAD for .NET
 
-<img src="image.jpg" width=30% height=30%>
+<img src="icon.jpg" width=30% height=30%>
 
 This project offers a streaming encryption/decryption utility tailored for large datasets, conforming to [Google's Tink protocol](https://developers.google.com/tink/streaming-aead) for Streaming Authenticated Encryption with Associated Data (Streaming AEAD). Specifically, it offers a single static class `AES256_GCM_HKDF_1MB`, which can encrypt/decrypt a stream in 1 MB segments with AES-256 GCM and is interoperable with Tink for this particular configuration.
 
