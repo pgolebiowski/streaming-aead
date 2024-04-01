@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET 8.0
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x'
+        
+      - name: Restore Dependencies
+        run: dotnet restore ./software/StreamingAead
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release ./software/StreamingAead
+        
+      - name: Test
+        run: dotnet test --verbosity normal --filter "Category != HeavyCompute & Category != LargeStorage" ./software/StreamingAead.Tests.Unit
+
